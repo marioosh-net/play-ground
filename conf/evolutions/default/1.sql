@@ -13,13 +13,13 @@ create table message (
   description               varchar(1024),
   title                     varchar(1024),
   clicks                    integer,
-  data                      bytea,
+  data                      varbinary(255),
   parent_id                 bigint,
   constraint pk_message primary key (id))
 ;
 
 create table tag (
-  id                        bigint not null,
+  id                        bigint auto_increment not null,
   name                      varchar(255),
   timestamp                 timestamp,
   constraint pk_tag primary key (id))
@@ -33,26 +33,26 @@ create table messages_tags (
 ;
 create sequence message_seq;
 
-create sequence tag_seq;
-
-alter table message add constraint fk_message_parent_1 foreign key (parent_id) references message (id);
+alter table message add constraint fk_message_parent_1 foreign key (parent_id) references message (id) on delete restrict on update restrict;
 create index ix_message_parent_1 on message (parent_id);
 
 
 
-alter table messages_tags add constraint fk_messages_tags_message_01 foreign key (message_id) references message (id);
+alter table messages_tags add constraint fk_messages_tags_message_01 foreign key (message_id) references message (id) on delete restrict on update restrict;
 
-alter table messages_tags add constraint fk_messages_tags_tag_02 foreign key (tag_id) references tag (id);
+alter table messages_tags add constraint fk_messages_tags_tag_02 foreign key (tag_id) references tag (id) on delete restrict on update restrict;
 
 # --- !Downs
 
-drop table if exists message cascade;
+SET REFERENTIAL_INTEGRITY FALSE;
 
-drop table if exists messages_tags cascade;
+drop table if exists message;
 
-drop table if exists tag cascade;
+drop table if exists messages_tags;
+
+drop table if exists tag;
+
+SET REFERENTIAL_INTEGRITY TRUE;
 
 drop sequence if exists message_seq;
-
-drop sequence if exists tag_seq;
 
