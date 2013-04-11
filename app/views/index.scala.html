@@ -1,51 +1,5 @@
-@(list: List[model.Message])
+@()
 @import helper._
-@main("webSafe") {
-
-	<div class="left leftfixed">
-        <div class="panel" id="new">
-        <div class="log-header">Progress LOG</div>
-        <div id="log"></div>
-        @if(flash.get("info")) {<div class="info">@flash.get("info")</div>}
-        @if(flash.get("error")) {<div class="error">@flash.get("error")</div>}
-        <div class="form-block-header">New link</div>
-            <form method="post" action="/post" id="form" class="highlighted" >
-                <label>URL</label><br/>
-                <input type="text" id="url" name="url" style="width: 95%;"/></br/>
-                <label>Tags (comma separated)</label><br/>
-                <input type="text" name="tags" style="width: 95%;"/><br>
-                <div class="buttons">
-                    <a href="#" id="okAsync">Add link</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="jQuery('#new').hide('fast');">Cancel</a>
-                </div>
-            </form>
-        </div>
-       
-        @*                    
-	    <form method="post" action="/post" id="form" class="highlighted" style="padding-bottom: 20px;">
-	        URL<br/><input type="text" name="url" style="width: 100%;"/><br/>
-	        Tags (comma separated)<br/><input type="text" name="tags" style="width: 85%;"/>
-	        <input type="button" value="Save" id="okAsync" style="width: 10%;" />
-	    </form>
-	    *@
-	    
-	    @*
-	    @form(action = routes.Application.post, 'id -> "form") {
-	        @inputText(myForm("url"), 'size -> 100, 'placeholder -> "http...", '_label -> "")
-	        <input type="submit" value="ok" id="ok" />
-	        <input type="button" value="OK" id="okAsync" />
-	    }
-	    *@
-	    
-	    @*<input type="button" value="comet" id="comet" />*@
-	    
-        <div id="list">@messages(list)</div>                
-	</div>
-	
-	<div class="left rightfixed">
-	<span id="tags1">@Tags.tagsHtml()</span>
-	<span id="clicks1">@Clicks.clicksHtml()</span>
-	</div>
-	
-	<div class="clear"></div>
-
+@main("index") {
+    <a href="/comet/index">comet</a>
 }

@@ -4,22 +4,12 @@
 
 # Home page
 GET     /                           controllers.Application.index()
-GET     /search/tag/:tagId              controllers.Application.searchByTagId(tagId: Long)
-GET     /search/host/:host              controllers.Application.searchByHost(host: String)
 GET     /search/*search                           controllers.Application.search(search)
-GET     /list/*search                           controllers.Application.list(search)
-GET     /list                           controllers.Application.list(search: String ?= "")
-GET    /asyncPost                           controllers.Application.asyncPost()
-POST    /asyncPost                           controllers.Application.asyncPost()
-GET     /open/:id                   controllers.Application.open(id: Long)
-GET		/click/:id					controllers.Application.clickPlus(id: Long)
-GET     /tags                       controllers.Tags.getTags
-GET     /clicks                       controllers.Clicks.getClicks
-GET     /deps/:parentId                       controllers.Application.deps(parentId: Long)
 
-GET     /test                   controllers.Test.test
-GET     /comet1                   controllers.Test.comet
-GET     /chunks1                   controllers.Test.chunks
+GET     /bodyparser                 controllers.BodyParser.test
+
+GET     /comet/index                   controllers.Comet.index
+GET     /comet                   controllers.Comet.comet
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

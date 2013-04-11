@@ -1,42 +1,48 @@
-body, html {
-	font-family: Verdana, sans-serif;
-	font-size: 0.9em;
+/** Layout with sticky fixed footer **/
+* {
+    margin:0;
+    padding:0;
+}   
+body,html {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    text-align: center;
 }
-.content-type {
-	color: silver;
+.fixedwidth {
+    width: 800px; /* content width */
+    margin: 0 auto;
+    text-align: left;
+}
+#wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -7em; /* -(#footer/#push height) */ 
+}
+#header {
+    background-color: #000;
+    color: #fff;
+    height: 40px; /* header height */
+}
+#main {
+}
+#menu {
+	border-bottom: 1px solid silver;
 	padding: 5px;
 }
-.info {
-	color: green;
+#content {
+	padding: 5px;
 }
-.error {
-	color: red;
+#footer {
+    clear:both;
+    background-color: #444;
 }
-.title {
-    font-weight: bold;
-    font-size: 1.5em;
-    margin-top: 10px;
-    margin-bottom: 10px;
+#push, #footer {
+    height: 7em; /* footer height */
 }
+/** Layout with sticky fixed footer END **/
 
-form {
-    /*height: 0em auto;*/
-}
-dd, dl {
-    margin: 0em;
-}
-#log {
-	/*
-	position: fixed;
-	right: 0px;
-	top: 0px;
-	width: 400px;
-	*/
-	height: 150px;
-	border: 1px solid silver;
-	overflow: auto;
-	font-family: courier;
-}
 iframe {
 	display: none;
 }

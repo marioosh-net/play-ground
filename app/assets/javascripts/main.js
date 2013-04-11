@@ -33,14 +33,7 @@ $(document).ready(function(){
 	});
 	
 	$('#comet').click(function(){
-		$.ajax({
-			url: '/comet',
-			method: 'get'
-		});		
-	});
-	
-	$('#open').click(function(){
-		$('body').append('<iframe src="/comet1"></iframe>');
+		$('body').append('<iframe src="/comet"></iframe>');
 		/*
 		$.ajax({
 			url: '/comet1',
@@ -52,16 +45,6 @@ $(document).ready(function(){
 		});
 		*/		
 	});
-	
-	$('#open1').click(function(){
-		$.ajax({
-			url: '/chunks1',
-			method: 'get',
-			success: function(data) {
-			   eval(data);
-			}
-		});		
-	});	
 	
 	$('.log-header').click(function() {
 		$('#log').slideToggle();

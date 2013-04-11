@@ -1,0 +1,19 @@
+@()
+@main("Comet") {
+    <script type="text/javascript">
+    function sendMessage(m) {
+        $('#log').append(m+'<br\>');
+        console.log(m);
+        var objDiv = document.getElementById("log");
+        objDiv.scrollTop = objDiv.scrollHeight;
+        
+        if(m == 'DONE') {
+            alert('DONE');
+        }
+    }
+    </script>
+
+    <input type="button" value="Comet" id="comet" />
+    <div id="log"></div>
+    <!-- <iframe src="/comet"></iframe> -->
+}

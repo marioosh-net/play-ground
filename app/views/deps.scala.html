@@ -1,8 +1,0 @@
-@(deps: List[model.Message])
-@if(deps != null) {
-    <ul>
-        @for(d <- deps) {
-            <li><a href="/open/@d.getId()" target="_blank">@d.getUrl()</a>&nbsp;<a href="@d.getUrl()" title="open original url" target="_blank">&raquo;</a></li>
-        }
-    </ul>
-}

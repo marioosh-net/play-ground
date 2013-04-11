@@ -1,9 +1,0 @@
-@(tags: List[model.Tag])
-@if(tags != null) {
-	<div class="block-header">Tags <span class="main-count"></span></div>
-	<div id="toptags">
-		@for(t <- tags) {
-		<span class="search-item" ><a href="/search/tag/@t.getId()">@t.getName()</a></span>
-		}
-	</div>
-}
