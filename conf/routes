@@ -18,6 +18,7 @@ GET     /secured                   controllers.Composition.secured
 GET     /auth                   controllers.Composition.index
 
 GET     /async1                 controllers.PromiseController.async1
+GET     /promise-html           controllers.PromiseHtml.html
 
 GET     /websocket              controllers.WebSocketController.index
 

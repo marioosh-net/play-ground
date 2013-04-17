@@ -25,6 +25,10 @@ public class PromiseController extends Controller {
 	
 	/**
 	 * new way
+	 * 
+	 * Promise<Result> p = ....;
+	 * return async(p);
+	 * 
 	 * @return
 	 */
 	public static Result async1() {
