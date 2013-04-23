@@ -1,0 +1,10 @@
+@(f: Form[model.Message])
+@import helper._
+@main("form2") {
+    <div class="messages">@if(flash.get("message") != null) {@flash.get("message")}</div>
+	@helper.form(action = routes.FormController.form2post()) {
+	   @helper.inputText(f("url"))
+	   @helper.inputText(f("title"))
+	   <input type="submit" value="send" />
+	}
+}

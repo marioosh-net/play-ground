@@ -25,5 +25,8 @@ GET     /websocket              controllers.WebSocketController.index
 GET     /form                   controllers.FormController.index
 POST    /post                   controllers.FormController.post
 
+GET     /form2                   controllers.FormController.index2
+POST    /form2post               controllers.FormController.form2post
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
