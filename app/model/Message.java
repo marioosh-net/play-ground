@@ -219,7 +219,7 @@ public class Message extends Model {
 
 	public String validate() {
 		if(url.isEmpty() || (!url.startsWith("http://") && !url.startsWith("file://") && !url.startsWith("https://") && !url.startsWith("ftp://"))) {
-			return "URL not valid";
+			return "URL not valid (need start with \"http://\"...)";
 		}
 		return null;
 	}

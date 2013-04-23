@@ -1,0 +1,10 @@
+@()
+@import helper._
+@main("form") {
+    <div class="messages">@if(flash.get("message") != null) {@flash.get("message")}</div>
+    <form action="/post" method="post">
+        URL: <input type="text" name="url"><br/>
+        title: <input type="text" name="title"><br/>
+        <input type="submit" value="send"/>
+    </form>
+}
