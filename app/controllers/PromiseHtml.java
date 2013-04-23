@@ -6,6 +6,7 @@ import play.libs.Akka;
 import play.libs.F.Function;
 import play.libs.F.Promise;
 import play.mvc.Controller;
+import play.mvc.Http;
 import play.mvc.Result;
 import scala.collection.mutable.StringBuilder;
 import views.html.test;
@@ -22,6 +23,12 @@ public class PromiseHtml extends Controller {
 
 			@Override
 			public Html call() throws Exception {
+				/**
+				 * There is no HTTP Context available from here.
+				 * session(), flash(), etc doesn't work here
+				 */
+				// Http.Context.current();
+				
 				Thread.sleep(2000);
 				return test.render();
 			}
@@ -38,6 +45,10 @@ public class PromiseHtml extends Controller {
 				new Function<Html, Result>() {
 					@Override
 					public Result apply(Html html) throws Exception {
+						/**
+						 * HTTP Context is here
+						 */
+						Http.Context.current();
 						return ok(html);
 					}			
 				}
