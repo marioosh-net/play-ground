@@ -1,0 +1,48 @@
+@()
+@main("XML") {
+    <a id="xml1" href="#">send xml - get text 1</a><br/>
+    <a id="xml2" href="#">send xml - get text 2</a><br/>
+    <a id="xml3" href="#">send xml - get xml</a><br/>
+    response:<br/>
+    <textarea id="out" style="width: 100%" rows="5"></textarea>
+    <br/>
+    <a href="#" id="clear">clear</a>
+    <script>
+    $('#xml1').click(function(){
+    	$.ajax({
+   		  type: "POST",
+   		  url: '/xmlget1',
+   		  data: '<name>Jan Kowalski</name>',
+   		  success: function(data) {
+   			  $('#out').append(data+'\n');
+   		  },
+   		  contentType : 'text/xml'
+    	});
+    });
+    $('#xml2').click(function(){
+        $.ajax({
+          type: "POST",
+          url: '/xmlget2',
+          data: '<name>Jan Kowalski</name>',
+          success: function(data) {
+              $('#out').append(data+'\n');
+          },
+          contentType : 'text/xml'
+        });
+    });    
+    $('#xml3').click(function(){
+        $.ajax({
+          type: "POST",
+          url: '/xmlget3',
+          data: '<name>Jan Kowalski</name>',
+          success: function(data) {
+        	  $('#out').text($('#out').text()+data+'\n');
+          },
+          contentType : 'text/xml'
+        });
+    });    
+    $('#clear').click(function(){
+    	$('#out').html('');
+    });
+    </script>
+}
