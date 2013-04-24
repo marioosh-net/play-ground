@@ -28,8 +28,10 @@ POST    /post                   controllers.FormController.post
 GET     /form2                   controllers.FormController.index2
 POST    /form2post               controllers.FormController.form2post
 
-GET   /jsonget               controllers.JsonController.sayHello
-POST   /jsonget               controllers.JsonController.sayHello
+GET   /json               controllers.JsonController.index
+POST   /jsonget1               controllers.JsonController.sayHello1
+POST   /jsonget2               controllers.JsonController.sayHello2
+POST   /jsonget3              controllers.JsonController.sayHello3
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

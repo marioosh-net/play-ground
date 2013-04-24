@@ -1,0 +1,48 @@
+@()
+@main("JSON") {
+    <a id="json1" href="#">send json - get text 1</a><br/>
+    <a id="json2" href="#">send json - get text 2</a><br/>
+    <a id="json3" href="#">send json - get json</a><br/>
+    response:<br/>
+    <textarea id="out" style="width: 100%" rows="5"></textarea>
+    <br/>
+    <a href="#" id="clear">clear</a>
+    <script>
+    $('#json1').click(function(){
+    	$.ajax({
+   		  type: "POST",
+   		  url: '/jsonget1',
+   		  data: JSON.stringify({ "name": "Jan Kowalski" }),
+   		  success: function(data) {
+   			  $('#out').append(data+'\n');
+   		  },
+   		  contentType : 'application/json'
+    	});
+    });
+    $('#json2').click(function(){
+        $.ajax({
+          type: "POST",
+          url: '/jsonget2',
+          data: JSON.stringify({ "name": "Jan Kowalski" }),
+          success: function(data) {
+        	  $('#out').append(data+'\n');            
+          },
+          contentType : 'application/json'
+        });
+    });
+    $('#json3').click(function(){
+        $.ajax({
+          type: "POST",
+          url: '/jsonget3',
+          data: JSON.stringify({ "name": "Jan Kowalski" }),
+          success: function(data) {
+        	  $('#out').append(JSON.stringify(data)+'\n');            
+          },
+          contentType : 'application/json'
+        });
+    });    
+    $('#clear').click(function(){
+    	$('#out').html('');
+    });
+    </script>
+}
