@@ -1,0 +1,16 @@
+@()
+@main("File Upload") {
+    <div class="messages">@if(flash.get("message") != null) {@flash.get("message")}</div>
+    @*
+    <form method="post" action="/transfer" enctype="multipart/form-data">
+        <input type="file" name="file"/>
+        <input type="submit" value="Upload"/>
+    </form>
+    *@
+    
+	@helper.form(action = routes.UploadController.upload, 'enctype -> "multipart/form-data") {
+        <input type="file" name="file"/>
+        <input type="submit" value="Upload"/>
+	}
+	
+}
