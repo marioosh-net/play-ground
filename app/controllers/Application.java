@@ -16,4 +16,12 @@ public class Application extends Controller {
     	return ok(search);
     }
 
+    /**
+     * TODO
+     * @return
+     */
+	public static Result todo() {
+		return TODO;
+	}
+
 }

@@ -41,5 +41,11 @@ POST   /xmlget3               controllers.XmlController.sayHello3
 GET   /upload               controllers.UploadController.index
 POST  /transfer               controllers.UploadController.upload
 
+GET     /todo       controllers.Application.todo
+
+GET   /sql               controllers.SqlController.index
+POST   /add               controllers.SqlController.add
+GET   /delete/:id               controllers.SqlController.delete(id: Long)
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

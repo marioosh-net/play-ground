@@ -1,0 +1,13 @@
+@(list: List[model.Message])
+@main("DB access"){
+    <div class="messages">@if(flash.get("message") != null) {@flash.get("message")}</div>
+    <form action="/add" method="post">
+        <input type="text" name="url"/>
+        <input type="submit" value="add"/>
+    </form>
+    <ul>
+    @for(l <- list) {
+        <li>@l <a href="/delete/@l.getId()">delete</a></li>
+    }
+    </ul>
+}
