@@ -50,5 +50,7 @@ GET   /delete/:id               controllers.SqlController.delete(id: Long)
 GET     /ws            controllers.WSController.index
 GET     /ws1            controllers.WSController.ws1
 
+GET     /akka            controllers.AkkaController.index
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
